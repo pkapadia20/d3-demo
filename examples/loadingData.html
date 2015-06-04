@@ -1,0 +1,36 @@
+<html>
+	
+<head>
+
+</head>
+	<body>
+		<script src="http://d3js.org/d3.v3.min.js"></script>
+
+
+
+<script type="text/javascript">
+
+d3.json('test.json', function(err, data) {
+
+var canvas = d3.select('body').append("svg")
+   .attr('height',500 )
+   .attr('width',500 );
+
+var bar = canvas.selectAll("rect")
+				.data(data)
+				.enter()
+				.append("rect")
+				.attr('width',function (d) {return d;})
+				.attr('height',40 )
+				.attr('y',function (d,i){return i*100;});
+  
+});
+
+
+</script>
+
+	
+
+
+	</body>
+</html>
